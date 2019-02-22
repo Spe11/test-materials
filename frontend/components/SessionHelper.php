@@ -14,6 +14,9 @@ class SessionHelper
         $session = \Yii::$app->session;
         $session->open();
         $viewed = $session['viewed'];
+        if(is_null($viewed)) {
+            $viewed = [];
+        }
         if (!in_array($id, $viewed))
         {
             $viewed[] = $id;
